@@ -22,13 +22,12 @@
     Remember to Save the file before you click Run Code!
 */
 
-
 let arr = [];
 arr[2] = "c";
 arr[0] = "a";
 arr[1] = "b";
 for (let a of arr) {
-    console.log(a);
+  console.log(a);
 }
 
 /* ---------------------------------------------------------------------------
@@ -52,7 +51,7 @@ for (let a of arr) {
 */
 
 function addExerciseToRoutine(routine, exercise, numRepetitions) {
-    // Your Code Here!
+  // Your Code Here!
 }
 
 /* 
@@ -66,11 +65,14 @@ addExerciseToRoutine(routineOne, "situp", 4);
 console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp"]));
 console.log("* Add single pushup");
 addExerciseToRoutine(routineOne, "pushup", 1);
-console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"]));
+console.log(
+  compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"])
+);
 console.log("* Add zero pullups");
 addExerciseToRoutine(routineOne, "pullup", 0);
-console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"]));
-
+console.log(
+  compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"])
+);
 
 /* ---------------------------------------------------------------------------
     Exercise Two
@@ -88,12 +90,12 @@ console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushu
 
 let actionsPerformed = [];
 function resetActions() {
-    actionsPerformed = [];
+  actionsPerformed = [];
 }
 
 function doAction(action) {
-    console.log(action);
-    actionsPerformed.push(action);
+  console.log(action);
+  actionsPerformed.push(action);
 }
 /*
    -------END OF GIVEN CODE - DO NOT EDIT --------------------------------------
@@ -103,7 +105,7 @@ function doAction(action) {
 */
 
 function performRoutine(routine) {
-    // Your Code Here!
+  // Your Code Here!
 }
 
 /* 
@@ -111,7 +113,16 @@ function performRoutine(routine) {
    Run these commands to make sure you did it right. They should all be true.
 */
 console.log("-----Tests for Exercise Two-----");
-let routineTwo = ["situp", "situp", "situp", "situp", "pushup", "pushup", "pushup", "pushup"];
+let routineTwo = [
+  "situp",
+  "situp",
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+];
 console.log("* Perform Routine");
 resetActions();
 performRoutine(routineTwo);
@@ -143,9 +154,9 @@ console.log(compareArray(routineTwo, actionsPerformed));
 */
 
 function countRepsOfActionInRoutine(routine, action) {
-    let count = 0;
-    // Your Code Here!
-    return count;
+  let count = 0;
+  // Your Code Here!
+  return count;
 }
 
 /* 
@@ -154,15 +165,42 @@ function countRepsOfActionInRoutine(routine, action) {
 */
 console.log("-----Tests for Exercise Three-----");
 console.log("* Count pushups");
-let routineThree = ["situp", "situp", "situp", "situp", "pushup", "pushup", "pushup", "pushup"];
+let routineThree = [
+  "situp",
+  "situp",
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+];
 console.log(countRepsOfActionInRoutine(routineThree, "pushup") == 4);
 
 console.log("* Count out of order pushups");
-routineThree = ["situp", "pushup", "situp", "pushup", "pullup", "pullup", "pushup", "pushup"];
+routineThree = [
+  "situp",
+  "pushup",
+  "situp",
+  "pushup",
+  "pullup",
+  "pullup",
+  "pushup",
+  "pushup",
+];
 console.log(countRepsOfActionInRoutine(routineThree, "pushup") == 4);
 
 console.log("* Count missing crunch");
-routineThree = ["situp", "pushup", "situp", "pushup", "pullup", "pullup", "pushup", "pushup"];
+routineThree = [
+  "situp",
+  "pushup",
+  "situp",
+  "pushup",
+  "pullup",
+  "pullup",
+  "pushup",
+  "pushup",
+];
 console.log(countRepsOfActionInRoutine(routineThree, "crunch") == 0);
 
 /* ---------------------------------------------------------------------------
@@ -197,9 +235,8 @@ console.log(countRepsOfActionInRoutine(routineThree, "crunch") == 0);
 */
 
 function removeExerciseFromRoutine(routine, exercise) {
-    // Your Code Here!
+  // Your Code Here!
 }
-
 
 /*
    -------TESTS---------------------------------------------------------------
@@ -208,18 +245,56 @@ function removeExerciseFromRoutine(routine, exercise) {
 
 console.log("-----Tests for Exercise Four-----");
 console.log("* Remove sequential pushups");
-let routineFour = ["situp", "situp", "situp", "situp", "pushup", "pushup", "pushup", "pushup"];
-removeExerciseFromRoutine(routineFour, "pushup")
+let routineFour = [
+  "situp",
+  "situp",
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+];
+removeExerciseFromRoutine(routineFour, "pushup");
 console.log(compareArray(routineFour, ["situp", "situp", "situp", "situp"]));
 
 console.log("* Remove non-sequential situps");
-routineFour = ["situp", "pushup", "situp", "pushup", "pullup", "situp", "pullup", "pushup", "pushup", "situp"];
-removeExerciseFromRoutine(routineFour, "situp")
-console.log(compareArray(routineFour, ["pushup", "pushup", "pullup", "pullup", "pushup", "pushup"]));
+routineFour = [
+  "situp",
+  "pushup",
+  "situp",
+  "pushup",
+  "pullup",
+  "situp",
+  "pullup",
+  "pushup",
+  "pushup",
+  "situp",
+];
+removeExerciseFromRoutine(routineFour, "situp");
+console.log(
+  compareArray(routineFour, [
+    "pushup",
+    "pushup",
+    "pullup",
+    "pullup",
+    "pushup",
+    "pushup",
+  ])
+);
 
 console.log("* Remove missing jumpingjack");
-removeExerciseFromRoutine(routineFour, "jumpingjack")
-console.log(compareArray(routineFour, ["pushup", "pushup", "pullup", "pullup", "pushup", "pushup"]));
+removeExerciseFromRoutine(routineFour, "jumpingjack");
+console.log(
+  compareArray(routineFour, [
+    "pushup",
+    "pushup",
+    "pullup",
+    "pullup",
+    "pushup",
+    "pushup",
+  ])
+);
 
 /*
    -------TEST UTILITIES------------------------------------------------------
@@ -230,27 +305,27 @@ console.log(compareArray(routineFour, ["pushup", "pushup", "pullup", "pullup", "
    But read through these and try to understand what they  do.
 */
 function copyArray(arr) {
-    let copy = [];
+  let copy = [];
 
-    if (arr && arr.length > 0) {
-        for (let index in arr) {
-            copy[index] = arr[index];
-        }
+  if (arr && arr.length > 0) {
+    for (let index in arr) {
+      copy[index] = arr[index];
     }
+  }
 
-    return copy;
+  return copy;
 }
 
 function compareArray(arr1, arr2) {
-    if (!arr1 || !arr2 || arr1.length != arr2.length) {
-        return false;
-    }
+  if (!arr1 || !arr2 || arr1.length != arr2.length) {
+    return false;
+  }
 
-    for (let index in arr1) {
-        if (arr1[index] != arr2[index]) {
-            return false;
-        }
+  for (let index in arr1) {
+    if (arr1[index] != arr2[index]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
