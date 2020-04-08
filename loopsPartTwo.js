@@ -24,7 +24,9 @@
 */
 
 function addExerciseToRoutineForLoop(routine, exercise, numRepetitions) {
-    // Your Code Here!  Use a For loop, not a for-of loop.
+  for (let i = 0; i < numRepetitions; i++) {
+    routine.push(exercise);
+  }
 }
 
 /* 
@@ -38,10 +40,14 @@ addExerciseToRoutineForLoop(routineOne, "situp", 4);
 console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp"]));
 console.log("* Add single pushup");
 addExerciseToRoutineForLoop(routineOne, "pushup", 1);
-console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"]));
+console.log(
+  compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"])
+);
 console.log("* Add zero pullups");
 addExerciseToRoutineForLoop(routineOne, "pullup", 0);
-console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"]));
+console.log(
+  compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushup"])
+);
 
 /* ------------------------------------------------
     Exercise Two
@@ -61,10 +67,17 @@ console.log(compareArray(routineOne, ["situp", "situp", "situp", "situp", "pushu
 */
 
 function findMinimumAndMaximum(schedule) {
-    let min = Number.POSITIVE_INFINITY;
-    let max = 0;
-    // Your Code Here!
-    return [min, max];
+  let min = Number.POSITIVE_INFINITY;
+  let max = 0;
+  let max = schedule[0];
+  const forloopMinMax = () =>
+  for (let i = 1; i < schedule.length; i++) {
+      let value = schedule[i]
+      min = (value < min) ? value : min
+      max = (value > max) ? value : max
+    }
+  }
+  return [min, max];
 }
 
 /* 
@@ -87,12 +100,10 @@ schedule = [8];
 result = findMinimumAndMaximum(schedule);
 console.log(result[0] == 8 && result[1] == 8);
 
-
 console.log("* Find min and max with zero");
 schedule = [8, 0, 3, 10];
 result = findMinimumAndMaximum(schedule);
 console.log(result[0] == 0 && result[1] == 10);
-
 
 /* ------------------------------------------------
     Exercise Three
@@ -132,9 +143,9 @@ console.log(result[0] == 0 && result[1] == 10);
 */
 
 function convertRoutineFromNewFormat(routineString) {
-    let routine = [];
-    // Your Code Here!
-    return routine;
+  let routine = [];
+  // Your Code Here!
+  return routine;
 }
 
 /* 
@@ -145,28 +156,36 @@ console.log("-----Tests for Exercise Three-----");
 console.log("* Perform Routine");
 let routineThreeString = "5:situp|4:pushup|3:legraise|2:pullup";
 let routineThree = convertRoutineFromNewFormat(routineThreeString);
-console.log(compareArray(routineThree, [
-    "situp", "situp", "situp", "situp", "situp",
-    "pushup", "pushup", "pushup", "pushup",
-    "legraise", "legraise", "legraise",
-    "pullup", "pullup"
-]));
-
+console.log(
+  compareArray(routineThree, [
+    "situp",
+    "situp",
+    "situp",
+    "situp",
+    "situp",
+    "pushup",
+    "pushup",
+    "pushup",
+    "pushup",
+    "legraise",
+    "legraise",
+    "legraise",
+    "pullup",
+    "pullup",
+  ])
+);
 
 console.log("* Perform Routine with empty exercise");
 routineThreeString = "3:situp|0:pushup|1:legraise";
 routineThree = convertRoutineFromNewFormat(routineThreeString);
-console.log(compareArray(routineThree, [
-    "situp", "situp", "situp",
-    "legraise",
-]));
+console.log(
+  compareArray(routineThree, ["situp", "situp", "situp", "legraise"])
+);
 
 console.log("* Perform single exercise");
 routineThreeString = "3:situp";
 routineThree = convertRoutineFromNewFormat(routineThreeString);
-console.log(compareArray(routineThree, [
-    "situp", "situp", "situp"
-]));
+console.log(compareArray(routineThree, ["situp", "situp", "situp"]));
 
 /* ---------------------------------------------------------------------------
     Exercise Four
@@ -201,9 +220,9 @@ console.log(compareArray(routineThree, [
 */
 
 function calculateRoutineDifficulty(routine) {
-    let difficulty = "";
-    // Your Code Here!
-    return difficulty;
+  let difficulty = "";
+  // Your Code Here!
+  return difficulty;
 }
 
 /* 
@@ -212,19 +231,63 @@ function calculateRoutineDifficulty(routine) {
 */
 console.log("-----Tests for Exercise Four-----");
 console.log("* Calculate Easy Routine");
-let routineFour = ["situp", "situp", "situp", "situp", "legraise", "legraise", "legraise", "legraise"];
+let routineFour = [
+  "situp",
+  "situp",
+  "situp",
+  "situp",
+  "legraise",
+  "legraise",
+  "legraise",
+  "legraise",
+];
 console.log(calculateRoutineDifficulty(routineFour) == "Easy");
 
 console.log("* Calculate Hard Routine");
-routineFour = ["situp", "situp", "pushup", "pushup", "pushup", "pushup", "pushup", "pushup", "pushup", "pushup"];
+routineFour = [
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+];
 console.log(calculateRoutineDifficulty(routineFour) == "Hard");
 
 console.log("* Calculate Exactly 30");
-routineFour = ["situp", "situp", "pushup", "pushup", "pushup", "pushup", "pushup", "pushup", "legraise", "legraise"];
+routineFour = [
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "legraise",
+  "legraise",
+];
 console.log(calculateRoutineDifficulty(routineFour) == "Hard");
 
 console.log("* Calculate Insane Routine");
-routineFour = ["situp", "situp", "pushup", "pushup", "pushup", "pushup", "legraise", "legraise", "pullup", "pullup", "pullup", "pullup"];
+routineFour = [
+  "situp",
+  "situp",
+  "pushup",
+  "pushup",
+  "pushup",
+  "pushup",
+  "legraise",
+  "legraise",
+  "pullup",
+  "pullup",
+  "pullup",
+  "pullup",
+];
 console.log(calculateRoutineDifficulty(routineFour) == "Insane");
 
 /*
@@ -236,27 +299,27 @@ console.log(calculateRoutineDifficulty(routineFour) == "Insane");
    But read through these and try to understand what they  do.
 */
 function copyArray(arr) {
-    let copy = [];
+  let copy = [];
 
-    if (arr && arr.length > 0) {
-        for (let index in arr) {
-            copy[index] = arr[index];
-        }
+  if (arr && arr.length > 0) {
+    for (let index in arr) {
+      copy[index] = arr[index];
     }
+  }
 
-    return copy;
+  return copy;
 }
 
 function compareArray(arr1, arr2) {
-    if (!arr1 || !arr2 || arr1.length != arr2.length) {
-        return false;
-    }
+  if (!arr1 || !arr2 || arr1.length != arr2.length) {
+    return false;
+  }
 
-    for (let index in arr1) {
-        if (arr1[index] != arr2[index]) {
-            return false;
-        }
+  for (let index in arr1) {
+    if (arr1[index] != arr2[index]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
