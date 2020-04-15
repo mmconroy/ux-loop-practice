@@ -69,12 +69,12 @@ console.log(
 function findMinimumAndMaximum(schedule) {
   let min = Number.POSITIVE_INFINITY;
   let max = 0;
-  let max = schedule[0];
-  const forloopMinMax = () =>
-  for (let i = 1; i < schedule.length; i++) {
-      let value = schedule[i]
-      min = (value < min) ? value : min
-      max = (value > max) ? value : max
+  for (let i = 0; i < schedule.length; i++) {
+    if (schedule[i] > max) {
+      max = schedule[i];
+    }
+    if (schedule[i] < min) {
+      min = schedule[i];
     }
   }
   return [min, max];
@@ -144,8 +144,17 @@ console.log(result[0] == 0 && result[1] == 10);
 
 function convertRoutineFromNewFormat(routineString) {
   let routine = [];
-  // Your Code Here!
-  return routine;
+  let result = [];
+  routine = routineString.split("|");
+  for (let set of routine) {
+    setArray = set.split(":");
+    let numOfReps = setArray[0];
+    let exercise = setArray[1];
+    for (let i = 0; i < numOfReps; i++) {
+      result.push(exercise);
+    }
+  }
+  return result;
 }
 
 /* 
@@ -221,7 +230,30 @@ console.log(compareArray(routineThree, ["situp", "situp", "situp"]));
 
 function calculateRoutineDifficulty(routine) {
   let difficulty = "";
-  // Your Code Here!
+  let exercisePoints = 0;
+  for (let index = 0; index < routine.length; index++) {
+    let exercise = routine[index];
+    let situpPointsVal = 1;
+    let legraisePointsVal = 2;
+    let pushupPointsVal = 4;
+    let pullupPointsVal = 10;
+    if (exercise === "situp") {
+      exercisePoints += situpPointsVal;
+    } else if (exercise === "legraise") {
+      exercisePoints += legraisePointsVal;
+    } else if (exercise === "pushup") {
+      exercisePoints += pushupPointsVal;
+    } else if (exercise === "pullup") {
+      exercisePoints += pullupPointsVal;
+    }
+    if (exercisePoints < 30) {
+      difficulty = "Easy";
+    } else if (exercisePoints >= 30 && exercisePoints < 60) {
+      difficulty = "Hard";
+    } else if (exercisePoints >= 60) {
+      difficulty = "Insane";
+    }
+  }
   return difficulty;
 }
 
